@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useRef } from "react";
 import Tree from "./Component/Tree/Tree";
+import Collapse from "./Component/Collapse/Collapse";
 
 function App() {
   // https://stackoverflow.com/questions/47185330/react-treeview-from-json-array
@@ -62,10 +63,8 @@ function App() {
             ref={outputRef}
             className={hasError ? "error output_section" : "output_section"}
           >
-            {outputText.map((obj) => {
-              return (text += "\n" + JSON.stringify(obj));
-            })}
-            {/* {outputText} */}
+            {outputText}
+            <Collapse data={outputText} />
           </pre>
         </div>
       </div>
