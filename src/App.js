@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import React, { useState } from "react";
 function App() {
+  const [inputText, setInputText] = useState("");
+  const [outputText, setOutputText] = useState("");
+  const inputChangeHandler = (e) => {
+    const { value } = e.target;
+    setInputText(value);
+  };
+  const submitHandle = (e) => {
+    e.preventDefault();
+    console.log(inputText);
+    try {
+      setOutputText(JSON.stringify(JSON.parse(inputText), null, 4));
+    } catch (error) {
+      setOutputText("error");
+    }
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form onSubmit={submitHandle}>
+        <button>Formet</button>
+        <br />
+        <textarea
+          name="inputText"
+          value={inputText}
+          onChange={inputChangeHandler}
+          id=""
+          spellcheck="false"
+          cols="50"
+          rows="50"
+        ></textarea>
+        <textarea
+          name="outputText"
+          value={outputText}
+          id=""
+          cols="50"
+          rows="50"
+        ></textarea>
+      </form>
     </div>
   );
 }
