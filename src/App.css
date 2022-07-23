@@ -7,15 +7,50 @@
 .output_contianer {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 2px;
+
 }
 
 .output_section {
     border: 1px solid;
     margin: 0;
     border-radius: 2px;
-    height: 765px;
+    height: 466px;
     width: 400px;
-    overflow-y: scroll;
+    overflow: scroll;
+}
+
+.button_continer {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.button_continer * {
+    margin: 0 20px;
+}
+
+.formate_button {
+    color: #fff;
+    background: green;
+    border: 0;
+    padding: 3px 7px;
+    border-radius: 3px;
+}
+
+.input_json {
+    resize: none;
+    outline: 0;
+    border: 1px solid;
+}
+
+.clear_button {
+    color: #fff;
+    background: red;
+    border: 0;
+    padding: 3px 7px;
+    border-radius: 3px;
 }
 
 .error {

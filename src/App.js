@@ -1,10 +1,7 @@
 import "./App.css";
-import React, { useState, useRef } from "react";
-import Tree from "./Component/Tree/Tree";
-import Collapse from "./Component/Collapse/Collapse";
+import React, { useState } from "react";
 
 function App() {
-  // https://stackoverflow.com/questions/47185330/react-treeview-from-json-array
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [hasError, setHasError] = useState(false);
@@ -14,9 +11,6 @@ function App() {
     setHasError(false);
     setOutputText("");
   };
-
-  const outputRef = useRef();
-  // number line
 
   const submitHandle = (e) => {
     e.preventDefault();
@@ -28,10 +22,26 @@ function App() {
       setHasError(true);
     }
   };
+
   return (
     <div className="App">
       <h1>JSON Formatter</h1>
-      <button onClick={submitHandle}>Format</button>
+      <div className="button_continer">
+        <button className="formate_button" onClick={submitHandle}>
+          Format
+        </button>
+        <button
+          className="clear_button"
+          onClick={() => {
+            setInputText("");
+            setOutputText("");
+            setHasError(false);
+          }}
+        >
+          Clear
+        </button>
+      </div>
+
       <div className="main_container">
         <div className="input_contianer">
           <label className="label" htmlFor="json_input">
@@ -39,33 +49,25 @@ function App() {
           </label>
 
           <textarea
+            className="input_json"
             name="inputText"
             value={inputText}
             onChange={inputChangeHandler}
             id="json_input"
             spellCheck="false"
             cols="50"
-            rows="50"
+            rows="30"
           ></textarea>
         </div>
         <div className="output_contianer">
           <label htmlFor="json_output">Enter JSON Data here</label>
-          {/* <textarea
-            name="inputText"
-            value={outputText}
-            // onChange={inputChangeHandler}
-            id="json_output"
-            spellCheck="false"
-            cols="50"
-            rows="50"
-          ></textarea> */}
-          <pre
-            ref={outputRef}
-            className={hasError ? "error output_section" : "output_section"}
-          >
-            {outputText}
-            <Collapse data={outputText} />
-          </pre>
+          <code>
+            <pre
+              className={hasError ? "error output_section" : "output_section"}
+            >
+              {outputText}
+            </pre>
+          </code>
         </div>
       </div>
     </div>
