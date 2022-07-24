@@ -9,6 +9,7 @@
     flex-direction: column;
     margin-bottom: 20px;
     border-radius: 2px;
+    flex-wrap: wrap;
 
 }
 
@@ -19,6 +20,12 @@
     height: 466px;
     width: 400px;
     overflow: scroll;
+    display: -webkit-inline-box;
+}
+
+.output_section p {
+    margin: 0;
+
 }
 
 .button_continer {
@@ -55,4 +62,81 @@
 
 .error {
     color: red;
+}
+
+.cur_barket {
+    display: inline;
+    margin: 0;
+}
+
+.string {
+    color: green;
+}
+
+.number {
+    color: red;
+}
+
+.boolean {
+    color: orange;
+}
+
+.squre_start {
+    display: inline;
+}
+
+.obj_div {
+    padding-left: 15px;
+}
+
+.obj_cover {
+    padding-left: 0;
+}
+
+.array {
+    display: unset;
+}
+
+.obj {
+    padding-left: 15px;
+    display: table;
+}
+
+
+.item {
+    padding-left: 15px;
+}
+
+.key {
+    display: inline;
+}
+
+.close_cur_barket {
+    display: inline;
+
+}
+
+.cur_barket_nested {
+    display: inline;
+}
+
+.hide {
+    display: none;
+}
+
+/* line number */
+.copy {
+    border: 1px solid;
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: gray;
+    right: -350px;
+}
+
+.squre_start::before,
+.cur_barket::before,
+.cur_barket_nested::before {
+    content: "^";
 }
